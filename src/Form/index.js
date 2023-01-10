@@ -1,22 +1,32 @@
 import "./style.css";
 import Label from "../Label";
 import Result from "../Result";
+import { useState } from "react";
 
 const Form = ({ title, input, select }) => {
+
+  const [amount, setAmount] = useState("");
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+  }
+
   return (
-    <form className="form" action="">
+    <form className="form" onSubmit={onFormSubmit}>
         <fieldset className="form__fieldset">
             <legend className="form__legend">Kalkulator walut</legend>
             <Label
                 title="Wymieniam*"
                 input={
                     <input
+                        value={amount}
                         className="label__input label__input--pln"
                         name="amount"
                         type="number"
                         min="1"
                         placeholder="Podaj wartość w PLN"
                         required
+                        onChange={({target}) => setAmount(target.value)}
                     />
                 }
             />

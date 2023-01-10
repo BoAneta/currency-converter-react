@@ -1,0 +1,5 @@
+.container {
+    flex-basis: 700px;
+    margin: 100px auto;
+    padding: 25px 15px;
+  }

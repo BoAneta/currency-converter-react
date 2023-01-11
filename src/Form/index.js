@@ -9,8 +9,8 @@ const Form = () => {
   const [currency, setCurrency] = useState(currencies[0].name);
 
   const calculateResult = (amount, currency) => {
-    const rate = currencies.find(({name}) =>
-    name === currency.name).rate;
+    const rate = currencies.find(({ name }) =>
+      name === currency.name).rate;
   };
 
   const onFormSubmit = (event) => {
@@ -47,10 +47,19 @@ const Form = () => {
               min="1"
               disabled
             />
-            <select className="label__input">
-              <option value="USD">$</option>
-              <option value="€">€</option>
-              <option value="NOK">NOK</option>
+            <select
+              className="label__input"
+              value={currency}
+              onChange={({ target }) => setCurrency(target.value)}
+            >
+              {currencies.map((currency => (
+                <option
+                  key={currency.name}
+                  value={currency.name}
+                >
+                  {currency.name}
+                </option>
+              )))}
             </select>
           </label>
         </p>

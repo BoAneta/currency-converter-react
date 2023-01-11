@@ -5,12 +5,17 @@ import { currencies } from "../Currencies";
 const Form = () => {
 
   const [amount, setAmount] = useState("");
-  const [result, setResult] = useState("");
   const [currency, setCurrency] = useState(currencies[0].name);
+  const [result, setResult] = useState();
 
   const calculateResult = (amount, currency) => {
     const rate = currencies.find(({ name }) =>
       name === currency.name).rate;
+
+      setResult({
+        exchangedAmount: +amount,
+        toGetAmount: amount / rate,
+      })
   };
 
   const onFormSubmit = (event) => {
@@ -46,6 +51,8 @@ const Form = () => {
               type="number"
               min="1"
               disabled
+              value={result}
+              onChange={({target}) => setResult(target.value)}
             />
             <select
               className="label__input"
@@ -64,7 +71,6 @@ const Form = () => {
           </label>
         </p>
         <button className="form__button">Przelicz</button>
-        <p className="form__result"></p>
         <p className="form__paragraph">*pole obowiązkowe</p>
       </fieldset>
     </form>

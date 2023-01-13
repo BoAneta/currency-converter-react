@@ -9,13 +9,10 @@ const Form = () => {
   const [result, setResult] = useState();
 
   const calculateResult = (amount, currency) => {
-    const rate = currencies.find(({ name }) =>
-      name === currency.name).rate;
+    const rate = currencies
+      .find(({ name }) => name === currency).rate;
 
-      setResult({
-        exchangedAmount: +amount,
-        toGetAmount: amount / rate,
-      })
+    setResult(+amount / rate);
   };
 
   const onFormSubmit = (event) => {
@@ -51,8 +48,8 @@ const Form = () => {
               type="number"
               min="1"
               disabled
-              value={result}
-              onChange={({target}) => setResult(target.value)}
+              value={(result).toFixed(2)}
+              onChange={({ target }) => setResult(target.value)}
             />
             <select
               className="label__input"

@@ -1,6 +1,7 @@
 import "./style.css";
 import { useState } from "react";
 import { currencies } from "../Currencies";
+import { Result } from "../Result";
 
 const Form = () => {
 
@@ -48,7 +49,7 @@ const Form = () => {
               type="number"
               min="1"
               disabled
-              value={(result).toFixed(2)}
+              value={result}
               onChange={({ target }) => setResult(target.value)}
             />
             <select
@@ -68,6 +69,7 @@ const Form = () => {
           </label>
         </p>
         <button className="form__button">Przelicz</button>
+        <Result result={result} amount={amount} currency={currency} />
         <p className="form__paragraph">*pole obowiązkowe</p>
       </fieldset>
     </form>

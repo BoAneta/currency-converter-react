@@ -7,7 +7,7 @@ const Form = () => {
 
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0].name);
-  const [result, setResult] = useState();
+  const [result, setResult] = useState("");
 
   const calculateResult = (amount, currency) => {
     const rate = currencies
@@ -27,7 +27,7 @@ const Form = () => {
         <legend className="form__legend">Kalkulator walut</legend>
         <p>
           <label className="label">
-            <span className="label__title">Wymieniam*</span>
+            <span className="label__title">Wymieniam*:</span>
             <input
               value={amount}
               className="label__input label__input--pln"
@@ -42,7 +42,7 @@ const Form = () => {
         </p>
         <p>
           <label className="label">
-            <span className="label__title">Otrzymam</span>
+            <span className="label__title">Otrzymam:</span>
             <input
               className="label__input label__input--disabled"
               name="amount"
@@ -50,7 +50,7 @@ const Form = () => {
               min="1"
               disabled
               value={result}
-              onChange={({ target }) => setResult(target.value)}
+              onChange={({ target }) => setResult(target.value.toFixed(2))}
             />
             <select
               className="label__input"

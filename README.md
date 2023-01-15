@@ -10,6 +10,17 @@ https://boaneta.github.io/currency-converter-react/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Languages and Tools used in the project:
+
+- HTML
+- Normalize
+- BEM
+- CSS
+- JavaScript
+- ES6+ features
+- Node.js
+- React
+
 ## Available Scripts
 
 In the project directory, you can run:

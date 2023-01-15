@@ -13,7 +13,11 @@ const Form = () => {
     const rate = currencies
       .find(({ name }) => name === currency).rate;
 
-    setResult(+amount / rate);
+    setResult({
+      toExchanged: +amount,
+      toGet: amount / rate,
+      currency,
+    });
   };
 
   const onFormSubmit = (event) => {
@@ -43,7 +47,7 @@ const Form = () => {
         <p>
           <label className="label">
             <span className="label__title">Otrzymam:</span>
-            <input
+            {/* <input
               className="label__input label__input--disabled"
               name="amount"
               type="number"
@@ -51,7 +55,7 @@ const Form = () => {
               disabled
               value={result}
               onChange={({ target }) => setResult(target.value.toFixed(2))}
-            />
+            /> */}
             <select
               className="label__input"
               value={currency}

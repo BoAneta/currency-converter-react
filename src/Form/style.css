@@ -45,7 +45,7 @@
 }
 
 .label__title {
-    width: 250px;
+    width: 205px;
     display: inline-block;
     margin-left: 5px;
 }
@@ -54,7 +54,7 @@
     border: 2px solid rgb(130, 125, 125);
     padding: 10px;
     border-radius: 10px;
-    max-width: 135px;
+    width: 210px;
     margin: 2px;
 }
 

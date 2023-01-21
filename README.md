@@ -6,7 +6,7 @@ Here you can simply convert Polish Zloty to Dollars, Euros and Norwegian Koronas
 ## Demo 
 https://boaneta.github.io/currency-converter-react/
 
-![Converter screen](currency-converter.screen.png)
+![Converter screen](currency-converter.screen.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

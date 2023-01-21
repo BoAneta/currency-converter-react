@@ -14,8 +14,8 @@ const Form = () => {
       .find(({ name }) => name === currency).rate;
 
     setResult({
-      toExchanged: +amount,
-      toGet: amount / rate,
+      amount: +amount,
+      resultValue: amount / rate,
       currency,
     });
   };
@@ -27,8 +27,9 @@ const Form = () => {
 
   return (
     <form className="form" onSubmit={onFormSubmit}>
+      <h1 className="header">Kalkulator walut</h1>
       <fieldset className="form__fieldset">
-        <legend className="form__legend">Kalkulator walut</legend>
+        {/* <legend className="form__legend">Kalkulator walut</legend> */}
         <p>
           <label className="label">
             <span className="label__title">Wymieniam*:</span>
@@ -47,15 +48,6 @@ const Form = () => {
         <p>
           <label className="label">
             <span className="label__title">Otrzymam:</span>
-            {/* <input
-              className="label__input label__input--disabled"
-              name="amount"
-              type="number"
-              min="1"
-              disabled
-              value={result}
-              onChange={({ target }) => setResult(target.value.toFixed(2))}
-            /> */}
             <select
               className="label__input"
               value={currency}

@@ -29,7 +29,6 @@ const Form = () => {
     <form className="form" onSubmit={onFormSubmit}>
       <h1 className="header">Kalkulator walut</h1>
       <fieldset className="form__fieldset">
-        {/* <legend className="form__legend">Kalkulator walut</legend> */}
         <p>
           <label className="label">
             <span className="label__title">Wymieniam*:</span>
@@ -65,7 +64,7 @@ const Form = () => {
           </label>
         </p>
         <button className="form__button">Przelicz</button>
-        <Result result={result} amount={amount} currency={currency} />
+        <Result result={result}/>
         <p className="form__paragraph">*pole obowiązkowe</p>
       </fieldset>
     </form>

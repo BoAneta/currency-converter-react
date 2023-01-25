@@ -2,6 +2,7 @@ import "./style.css";
 import { useState } from "react";
 import { currencies } from "../Currencies";
 import { Result } from "../Result";
+import { Clock } from "../Clock";
 
 const Form = () => {
 
@@ -29,6 +30,7 @@ const Form = () => {
     <form className="form" onSubmit={onFormSubmit}>
       <h1 className="header">Kalkulator walut</h1>
       <fieldset className="form__fieldset">
+        <Clock />
         <p>
           <label className="label">
             <span className="label__title">Wymieniam*:</span>

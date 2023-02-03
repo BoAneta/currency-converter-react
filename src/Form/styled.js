@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 import styled from "styled-components";
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.h1`
     text-align: center;
     background-color: rgba(255, 255, 255, 0.61);
     border-radius: 65px;

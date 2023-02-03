@@ -3,6 +3,7 @@ import { useState } from "react";
 import { currencies } from "../Currencies";
 import { Result } from "../Result";
 import { Clock } from "../Clock";
+import { StyledButton, Field, StyledFieldset, StyledHeader, Paragraph, Title } from "./styled";
 
 const Form = () => {
 
@@ -27,16 +28,15 @@ const Form = () => {
   }
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <h1 className="header">Kalkulator walut</h1>
-      <fieldset className="form__fieldset">
+    <form onSubmit={onFormSubmit}>
+      <StyledHeader>Kalkulator walut</StyledHeader>
+      <StyledFieldset>
         <Clock />
         <p>
-          <label className="label">
-            <span className="label__title">Wymieniam*:</span>
-            <input
+          <label>
+            <Title>Wymieniam*:</Title>
+            <Field
               value={amount}
-              className="label__input label__input--pln"
               name="amount"
               type="number"
               min="1"
@@ -47,10 +47,10 @@ const Form = () => {
           </label>
         </p>
         <p>
-          <label className="label">
-            <span className="label__title">Otrzymam:</span>
-            <select
-              className="label__input"
+          <label>
+            <Title>Otrzymam:</Title>
+            <Field 
+              as="select"
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
             >
@@ -62,13 +62,13 @@ const Form = () => {
                   {currency.name}
                 </option>
               )))}
-            </select>
+            </Field>
           </label>
         </p>
-        <button className="form__button">Przelicz</button>
+        <StyledButton>Przelicz</StyledButton>
         <Result result={result}/>
-        <p className="form__paragraph">*pole obowiązkowe</p>
-      </fieldset>
+        <Paragraph>*pole obowiązkowe</Paragraph>
+      </StyledFieldset>
     </form>
   )
 }

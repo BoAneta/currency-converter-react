@@ -1,4 +1,3 @@
-import "./style.css";
 import { useState } from "react";
 import { currencies } from "./currencies";
 import { Result } from "../Result";
@@ -6,7 +5,6 @@ import { Clock } from "../Clock";
 import { StyledButton, Field, StyledFieldset, StyledHeader, Paragraph, Title } from "./styled";
 
 const Form = () => {
-
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0].name);
   const [result, setResult] = useState("");

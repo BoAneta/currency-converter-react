@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.h1`
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.61);
+    background-color: ${({theme}) => theme.color.transparentWhite};
     border-radius: 65px;
     padding: 5px;
  
@@ -11,9 +11,9 @@ export const StyledHeader = styled.h1`
 
 export const StyledFieldset = styled.fieldset`
     border-radius: 65px;
-    border: 10px inset rgba(76, 162, 220, 0.842);
-    background-color: rgba(255, 255, 255, 0.61);
-    box-shadow: 0 0 5px 8px rgba(0, 0, 0, 0.427);
+    border: 10px inset ${({theme}) => theme.color.lightBlue};
+    background-color: ${({theme}) => theme.color.transparentWhite};
+    box-shadow: 0 0 5px 8px ${({theme}) => theme.color.lightBlack};
 `;
 
 export const Title = styled.span`
@@ -23,7 +23,7 @@ export const Title = styled.span`
 `;
 
 export const Field = styled.input`
-border: 2px solid rgb(130, 125, 125);
+    border: 2px solid ${({theme}) => theme.color.grey};
     padding: 10px;
     border-radius: 10px;
     width: 210px;
@@ -43,7 +43,7 @@ export const StyledButton = styled.button`
     padding: 15px;
     border: none;
     border-radius: 20px;
-    background-color: rgba(76, 162, 220, 0.842);
+    background-color: ${({theme}) => theme.color.lightBlue};
     font-weight: bold;
     font-size: large;
     letter-spacing: 0.9px;
@@ -51,12 +51,12 @@ export const StyledButton = styled.button`
     transition: 2s;
 
     &:hover {
-        background-color: rgba(58, 123, 166, 0.842);
+        filter: brightness(120%);
         transform: scale(1.02);
     }
 
     &:active {
-        background-color: rgba(36, 75, 101, 0.842);
+        filter: brightness(140%);
     }
 `;
 

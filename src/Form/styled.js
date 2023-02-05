@@ -29,11 +29,11 @@ border: 2px solid rgb(130, 125, 125);
     width: 210px;
     margin: 2px;
 
-@media (max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
+@media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         max-width: none;
     }
 
-    ${({pln}) => pln && css`
+    ${({ pln }) => pln && css`
         max-width: 300px;
     `}
 `;

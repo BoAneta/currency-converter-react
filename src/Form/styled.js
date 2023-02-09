@@ -63,3 +63,21 @@ export const StyledButton = styled.button`
 export const Paragraph = styled.p`
     margin-left: 5px;
 `;
+
+export const Loading = styled.p`
+    color: ${({theme}) => theme.color.tealBlue};
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+`;
+
+export const StyledError = styled.p`
+    color: ${({theme}) => theme.color.crimson};
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+`;
+
+export const RatesInfo = styled.p`
+    text-align: center;
+`;

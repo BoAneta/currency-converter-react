@@ -45,12 +45,12 @@ const Form = () => {
         {ratesFromApi.state === "loading"
           ? (
             <Loading>
-              Chwileczkę... <br /> Kursy walut na dzień dzisiejszy ładują się...
+              Chwileczkę... <br /> ⏳<br /> Kursy walut na dzień dzisiejszy ładują się...
             </Loading>
           ) : (
             ratesFromApi.state === "error" ? (
               <StyledError>
-                Coś poszło nie tak...
+                Coś poszło nie tak 🤷... <br /> Sprawdź połączenie z internetem lub spróbuj później.
               </StyledError>
             ) :
               <>
@@ -97,7 +97,7 @@ const Form = () => {
                 </StyledButton>
                 <Result result={result} />
                 <RatesInfo>
-                  Kurs walut pobrany z NBP na dzień &nbsp; {ratesFromApi.date}
+                  Kurs walut pobrany z NBP na dzień &nbsp;{ratesFromApi.date}
                 </RatesInfo>
                 <Paragraph>
                   *pole obowiązkowe

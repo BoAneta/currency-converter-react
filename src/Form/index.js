@@ -1,21 +1,24 @@
 import { useState } from "react";
-import { currencies } from "./currencies";
 import { Result } from "../Result";
 import { Clock } from "../Clock";
-import { StyledButton, 
-        Field, 
-        StyledFieldset, 
-        StyledHeader, 
-        Paragraph, 
-        Title, 
-        Loading, 
-        StyledError, 
-        RatesInfo } from "./styled";
+import {
+  StyledButton,
+  Field,
+  StyledFieldset,
+  StyledHeader,
+  Paragraph,
+  Title,
+  Loading,
+  StyledError,
+  RatesInfo
+} from "./styled";
 import { useRatesFromAPI } from "./useRatesFromAPI";
+
+const defaultCurrency = "USD";
 
 const Form = () => {
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0].name);
+  const [currency, setCurrency] = useState(defaultCurrency);
   const [result, setResult] = useState("");
 
   const ratesFromApi = useRatesFromAPI();
@@ -64,6 +67,7 @@ const Form = () => {
                       name="amount"
                       type="number"
                       min="1"
+                      step="0.01"
                       placeholder="Podaj wartość w PLN"
                       required
                       onChange={({ target }) => setAmount(target.value)}

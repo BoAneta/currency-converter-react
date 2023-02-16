@@ -12,7 +12,7 @@ export const useRatesFromAPI = () => {
                 const response = await axios.get("https://api.exchangerate.host/latest?base=PLN");
 
                 setRatesFromAPI({
-                    state: "working",
+                    state: "success",
                     rates: response.data.rates,
                     date: response.data.date,
                 });
@@ -22,7 +22,7 @@ export const useRatesFromAPI = () => {
                 });
             };
         };
-        
+
         setTimeout(getRates, 2000);
     }, []);
 

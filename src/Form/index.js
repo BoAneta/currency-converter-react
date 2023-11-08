@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Result } from "../Result";
 import { Clock } from "../Clock";
 import {
@@ -24,7 +24,7 @@ const Form = () => {
   const ratesFromApi = useRatesFromAPI();
 
   const calculateResult = (amount, currency) => {
-    const rate = ratesFromApi.rates[currency];
+    const rate = ratesFromApi.data[currency].value;
 
     setResult({
       amount: +amount,
@@ -37,6 +37,18 @@ const Form = () => {
     event.preventDefault();
     calculateResult(amount, currency);
   }
+
+  const [myDate, setMyDate] = useState(new Date());
+
+  useEffect(() => {
+    setMyDate(new Date(!!ratesFromApi.meta && ratesFromApi.meta.last_updated_at));
+  }, [ratesFromApi]);
+
+  const formattedTime = myDate.toLocaleDateString(undefined, {
+    month: "2-digit",
+    day: "2-digit",
+    year: "numeric",
+  });
 
   return (
     <form onSubmit={onFormSubmit}>
@@ -84,7 +96,7 @@ const Form = () => {
                       value={currency}
                       onChange={({ target }) => setCurrency(target.value)}
                     >
-                      {Object.keys(ratesFromApi.rates).map((currency => (
+                      {Object.keys(ratesFromApi.data).map((currency => (
                         <option
                           key={currency}
                           value={currency}
@@ -101,7 +113,7 @@ const Form = () => {
                 </StyledButton>
                 <Result result={result} />
                 <RatesInfo>
-                  Kurs walut pobrany z NBP na dzień &nbsp;{ratesFromApi.date}
+                  Kurs walut pobrany z NBP na dzień &nbsp;{formattedTime}
                 </RatesInfo>
                 <Paragraph>
                   *pole obowiązkowe

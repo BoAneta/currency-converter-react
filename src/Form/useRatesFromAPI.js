@@ -6,7 +6,7 @@ export const useRatesFromAPI = () => {
         data: null,
     });
 
-const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_vM6Sk9h5YCC3x95ULZRQgxxxQ0Exwc130Pbop0EC&currencies=EUR%2CUSD%2CCAD&base_currency=PLN"
+const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_vM6Sk9h5YCC3x95ULZRQgxxxQ0Exwc130Pbop0EC&base_currency=PLN"
 
     useEffect(() => {
         const fetchRates = async () => {
@@ -17,7 +17,7 @@ const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_vM6Sk9h5YC
                     throw new Error(response.statusText);
                 }
 
-                const { data, meta } = response.data;
+                const { data, meta } = await response.json();
 
                 setRatesFromAPI({
                     state: "success",
